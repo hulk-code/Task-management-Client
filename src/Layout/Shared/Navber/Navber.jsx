@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 import "./Navbar.css";
 import { AuthContext } from "../../../Context/AuthProvider";
 
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, LogOut } = useContext(AuthContext);
@@ -150,7 +151,7 @@ const Navbar = () => {
     <div
       className={`fixed top-0 z-50 w-full transition duration-500 ${
         scrolled
-          ? `bg-white dropdown-menu shadow-lg ${
+          ? ` dropdown-menu shadow-lg ${
               theme === "dark" ? "bg-gradient-backdrop" : ""
             }`
           : "bg-transparent"

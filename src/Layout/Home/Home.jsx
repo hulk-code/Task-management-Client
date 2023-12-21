@@ -15,7 +15,7 @@ const Home = () => {
               Manage work <br />{" "}
               <span className="text-indigo-800">Efficiently.</span>
             </h1>
-            <h5 className="text-2xl font-bold pt-5">
+            <h5 className="text-2xl font-bold pt-5 text-zinc-50">
               Plan, Track and Organise your work.
             </h5>
             <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-500">
