@@ -13,7 +13,7 @@ const LogIn = () => {
   const [error, setError] = useState("");
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/dashboard";
+  const from = location.state?.from?.pathname || "/";
 
   const navigate = useNavigate();
 

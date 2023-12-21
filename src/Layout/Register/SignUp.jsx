@@ -13,7 +13,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/addtasks";
+  const from = location.state?.from?.pathname || "/";
 
   const navigate = useNavigate();
 

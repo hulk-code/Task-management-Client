@@ -73,7 +73,7 @@ const Navbar = () => {
                 : ""
             }`}
           >
-            <Link to="/dashboard">DASHBOARD</Link>
+            <Link to="/dashboard/addtask">DASHBOARD</Link>
           </li>
           {/* <li
             className={`py-5 font-semibold text-white ${
@@ -120,7 +120,7 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <li
+          {/* <li
             className={`font-semibold mr-2 py-5 text-white ${
               scrolled ? "text-black dark:text-white" : ""
             } ${
@@ -130,7 +130,7 @@ const Navbar = () => {
             }`}
           >
             <Link to="/login">Let’s Explore</Link>
-          </li>
+          </li> */}
           <li
             className={`font-semibold mr-2 py-5 text-white ${
               scrolled ? "text-black dark:text-white" : ""
