@@ -68,14 +68,14 @@ const Navbar = () => {
             className={`py-5 font-semibold text-white ${
               scrolled ? "text-black dark:text-white" : ""
             }  ${
-              location.pathname === "/addtasks"
+              location.pathname === "/dashboard"
                 ? "border-b-2 border-indigo-800"
                 : ""
             }`}
           >
-            <Link to="/addtasks">Add Task</Link>
+            <Link to="/dashboard">DASHBOARD</Link>
           </li>
-          <li
+          {/* <li
             className={`py-5 font-semibold text-white ${
               scrolled ? "text-black dark:text-white" : ""
             } ${
@@ -85,8 +85,8 @@ const Navbar = () => {
             }`}
           >
             <Link to="/mytasks">My Task</Link>
-          </li>
-          <li
+          </li> */}
+          {/* <li
             className={`py-5 font-semibold text-white ${
               scrolled ? "text-black dark:text-white" : ""
             } ${
@@ -96,7 +96,7 @@ const Navbar = () => {
             }`}
           >
             <Link to="/completetasks">Complete Task</Link>
-          </li>
+          </li> */}
           <li
             className={`font-semibold text-white ${
               scrolled ? "text-black dark:text-white" : ""
@@ -120,6 +120,17 @@ const Navbar = () => {
         </>
       ) : (
         <>
+          <li
+            className={`font-semibold mr-2 py-5 text-white ${
+              scrolled ? "text-black dark:text-white" : ""
+            } ${
+              location.pathname === "/exploer"
+                ? "border-b-2 border-indigo-800 text-white"
+                : ""
+            }`}
+          >
+            <Link to="/login">Let’s Explore</Link>
+          </li>
           <li
             className={`font-semibold mr-2 py-5 text-white ${
               scrolled ? "text-black dark:text-white" : ""
