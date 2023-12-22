@@ -17,7 +17,7 @@ const Addtask = () => {
        
             // now send the menu item data to the server with the image url
             const menuItem = {
-                worktitle: data.worktitle,
+                task: data.task,
                 workdetails:data.workdetails
 
                
@@ -54,8 +54,8 @@ const Addtask = () => {
                         </label>
                         <input
                             type="text"
-                            placeholder="Work Title"
-                            {...register('worktitle', { required: true })}
+                            placeholder="task"
+                            {...register('task', { required: true })}
                             required
                             className="input input-bordered w-full" />
                     </div>

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../../Context/AuthProvider";
 import MyTaskCard from "../MyTaskCard/MyTaskCard";
+import toast from "react-hot-toast";
 
 const ToDo = () => {
   const { user } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const ToDo = () => {
     queryKey: ["tasks"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/addtasks/${user?.email}`
+        `http://localhost:5000/addtasks?email${user.email}`
       );
 
       const data = await res.json();
@@ -32,6 +33,21 @@ const ToDo = () => {
       return undoneItem;
     },
   });
+  const handleTaskDelete = (id) => {
+    const processed = window.confirm("Are you sure want to delete");
+    if (processed) {
+      fetch(`http://localhost:5000/tasks/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            toast.success("Deleted successfully");
+            refetch();
+          }
+        });
+    }
+  };
 
 
 
@@ -61,7 +77,9 @@ const ToDo = () => {
       </div>
 
       <div className="pb-16 min-h-screen">
+      
         <h3 className="text-2xl text-center mt-10 font-bold dark:text-white">
+          <h1>iusaefgdtisu  {tasks.length}</h1>
           {tasks.length < 2 ? (
             <div>You have {tasks?.length} Active Task</div>
           ) : (
@@ -74,7 +92,7 @@ const ToDo = () => {
               key={task._id}
               refetch={refetch}
               task={task}
-            //   handleTaskDelete={handleTaskDelete}
+              handleTaskDelete={handleTaskDelete}
               isLoading={isLoading}
             ></MyTaskCard>
           ))}
