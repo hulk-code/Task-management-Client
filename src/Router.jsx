@@ -9,6 +9,7 @@ import Addtask from "./Layout/Dashboard/Addtask/Addtask";
 import ToDo from "./Layout/Dashboard/ToDo/ToDo";
 import PrivateRoute from "./Layout/PrivateRoute/PrivateRoute";
 import CompleteTasks from "./Layout/Dashboard/CompletedTask/CompletedTask";
+import Ongoing from "./Layout/Dashboard/OnGoing/Ongoing";
 
 const router = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
         },
         {
           path: "ongoing",
-          element:<PrivateRoute><CompleteTasks></CompleteTasks></PrivateRoute>,
+          element:<PrivateRoute><Ongoing></Ongoing></PrivateRoute>,
         },
         {
           path: "completedTask",

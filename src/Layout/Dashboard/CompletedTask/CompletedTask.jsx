@@ -27,7 +27,7 @@ const CompleteTasks = () => {
     queryKey: ["tasks"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/addtask?email=${user?.email}`
+        `https://task-management-serve.vercel.app/addtask?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -39,9 +39,9 @@ const CompleteTasks = () => {
     setDoneTask(taskDone);
   }, [tasks]);
 
-  //incomplete handle
+//   incomplete handle
   const incompleteTask = (id) => {
-    fetch(`http://localhost:5000/undonetask/${id}`, {
+    fetch(`https://task-management-serve.vercel.app/undonetask/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -56,7 +56,7 @@ const CompleteTasks = () => {
   const handleTaskDelete = (id) => {
     const processed = window.confirm("Are you sure want to delete");
     if (processed) {
-      fetch(`http://localhost:5000/tasks/${id}`, {
+      fetch(`https://task-management-serve.vercel.app/tasks/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -77,15 +77,15 @@ const CompleteTasks = () => {
   }
 
   return (
-    <div className="dark:bg-[#0F172A] pb-16 min-h-screen">
-      <div className="relative after:absolute after:content-normal after:bg-black after:opacity-30 after:h-full after:w-full after:top-0 after:left-0">
+    <div className="dark:bg-[#0F172A] pb-16 min-h-screen lg:absolute top-10 left-[400px]">
+      <div className="lg:relative lg:after:absolute after:content-normal after:bg-black after:opacity-30 after:h-full after:w-full after:top-0 after:left-0">
         <img
           src='https://i.ibb.co/RSYDGJT/completetask.jpg'
           alt=""
-          className="w-full bg-no-repeat  bg-cover relative"
+          className="w-full bg-no-repeat  bg-cover lg:relative"
         />
 
-        <div className="absolute top-16 md:top-32 lg:top-1/3 left-0 right-0 text-center z-10">
+        <div className="lg:absolute top-16 md:top-32 lg:top-1/3 left-0 right-0 text-center z-10">
           <h1 className="error font-bold  lg:text-5xl text-4xl text-white">
             Your Complete Task
           </h1>

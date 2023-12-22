@@ -12,17 +12,28 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
   const navigate = useNavigate();
 
   const handleDone = (id) => {
-    fetch(`https://task-management-serve.vercel.app/donetask/${id}`, {
+    fetch(`https://task-management-serve.vercel.app/ongoing/${id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('uagsciagiau',data);
+        toast.success("Your task is completed");
+        navigate("/dashboard/completedTask");
+      });
+  };
+
+  const incompleteTask = (id) => {
+    fetch(`https://task-management-serve.vercel.app/notongoing/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast.success("Your task is completed");
-        navigate("/dashboard/ongoing");
+        toast.error("Your task is not completed");
+        navigate("/dashboard/todo");
       });
   };
-
 //   update form field
   const handleUpdateTask = (event) => {
     event.preventDefault();
@@ -83,6 +94,7 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
                 </div>
 
                 <div className="flex items-center ml-3">
+                    
                   <button
                     onClick={cencelUpdate}
                     title="click for edit"
@@ -114,6 +126,8 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
         <>
           <div className="lg:w-2/5 md:w-3/5 sm:w-4/5 responsive-card pl-6 pb-7 mx-auto mt-10 bg-[#F3F4F6] border border-indigo-800 rounded-lg shadow-xl dark:bg-gray-700 dark:border-gray-700">
             <div className="flex justify-end py-1 pr-2">
+          
+        
               <Link to={`/details/${task._id}`}>
                 <Icon
                   icon="ic:twotone-remove-red-eye"
@@ -124,6 +138,7 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
             </div>
             <div className="flex justify-between">
               <div className="flex items-center">
+              
                 <button
                   onClick={() => handleDone(task._id)}
                   title="click for complete"
@@ -144,6 +159,7 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
                 </div>
               </div>
               <div className="flex items-center ml-3 pr-4">
+              
                 <button
                   onClick={() => {
                     setIsUpdating(task._id);

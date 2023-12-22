@@ -17,7 +17,9 @@ const Dashboard = () => {
       {/* Sidebar content here */}
       <li> <NavLink to='/dashboard/addtask'>AddTask</NavLink></li>
       <li> <NavLink to='/dashboard/todo'>ToDo</NavLink></li>
+      <li> <NavLink to='/dashboard/ongoing'>OnGoing</NavLink></li>
       <li> <NavLink to='/dashboard/completedTask'>Completed Task</NavLink></li>
+     
       <hr />
       <li> <NavLink to='/'>Home</NavLink></li>
     </ul>

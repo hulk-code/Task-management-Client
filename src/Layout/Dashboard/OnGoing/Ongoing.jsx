@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import  { useContext } from "react";
+import { useContext } from "react";
 // import { toast } from "react-hot-toast";
 
 import TitleHook from "../../Shared/TitleHook/TitleHook";
@@ -11,9 +11,7 @@ import { AuthContext } from "../../../Context/AuthProvider";
 import MyTaskCard from "../MyTaskCard/MyTaskCard";
 import toast from "react-hot-toast";
 
-
-
-const ToDo = () => {
+const Ongoing = () => {
   const { user } = useContext(AuthContext);
 
   //titlehook
@@ -31,7 +29,7 @@ const ToDo = () => {
       );
 
       const data = await res.json();
-      const undoneItem = data.filter((task) => !task.done);
+      const undoneItem = data.filter((task) => task.ongoing);
       return undoneItem;
     },
   });
@@ -51,22 +49,20 @@ const ToDo = () => {
     }
   };
 
-
-
   if (isLoading) {
     return <Loading></Loading>;
   }
 
   return (
-    <div className="dark:bg-[#0F172A] pb-5 sm:w-1/2  lg:absolute top-10 left-[400px] min-h-screen">
-      <div className=" lg:relative lg:after:absolute after:content-normal after:bg-black after:opacity-30 after:h-full after:w-full after:top-0 after:left-0">
+    <div className="dark:bg-[#0F172A] pb-5 min-h-screen lg:absolute top-10 left-[400px]">
+      <div className="lg:relative lg:after:absolute after:content-normal after:bg-black after:opacity-30 after:h-full after:w-full after:top-0 after:left-0">
         <img
-          src='https://i.ibb.co/RBKrwd3/wishlist.png'
+          src="https://i.ibb.co/RBKrwd3/wishlist.png"
           alt=""
-          className="w-full bg-no-repeat  bg-cover  lg:relative"
+          className="w-full bg-no-repeat  bg-cover lg:relative"
         />
 
-        <div className="lg:absolute top-16 md:top-32 lg:top-1/3 left-0 right-0 text-center z-10">
+        <div className="absolute top-16 md:top-32 lg:top-1/3 left-0 right-0 text-center z-10">
           <h1 className="error font-bold  lg:text-5xl text-4xl text-white">
             Your Existing Task
           </h1>
@@ -79,9 +75,7 @@ const ToDo = () => {
       </div>
 
       <div className="pb-16 min-h-screen">
-      
         <h3 className="text-2xl text-center mt-10 font-bold dark:text-white">
-        
           {tasks.length < 2 ? (
             <div>You have {tasks?.length} Active Task</div>
           ) : (
@@ -97,14 +91,10 @@ const ToDo = () => {
               handleTaskDelete={handleTaskDelete}
               isLoading={isLoading}
             ></MyTaskCard>
-
-            
           ))}
-
-       
       </div>
     </div>
   );
 };
 
-export default ToDo;
+export default Ongoing;

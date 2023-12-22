@@ -50,7 +50,7 @@ const Addtask = () => {
     return (
         <div>
          
-            <div className="w-1/2 mx-auto shadow-lg absolute top-10 left-[400px]  bg-slate-400">
+            <div className="w-1/2 mx-auto shadow-lg lg:absolute top-10 left-[400px]  bg-slate-400">
             <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">
                         <label className="label">
