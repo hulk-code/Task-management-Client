@@ -12,6 +12,7 @@
   "dependencies": {
     "@iconify/react": "^4.1.1",
     "@sweetalert2/themes": "^5.0.15",
+    "@tanstack/react-query": "^5.14.2",
     "axios": "^1.6.2",
     "firebase": "^10.7.1",
     "localforage": "^1.10.0",

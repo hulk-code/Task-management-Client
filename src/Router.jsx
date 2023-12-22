@@ -6,6 +6,8 @@ import SignUp from "./Layout/Register/SignUp";
 import LogIn from "./Layout/Register/Login/Login";
 import Dashboard from "./Layout/Dashboard/Dashboard";
 import Addtask from "./Layout/Dashboard/Addtask/Addtask";
+import ToDo from "./Layout/Dashboard/ToDo/ToDo";
+import PrivateRoute from "./Layout/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
         {
           path: "addtask",
           element:<Addtask></Addtask>,
+        },
+        {
+          path: "todo",
+          element:<PrivateRoute><ToDo></ToDo></PrivateRoute>,
         },
         
       ],

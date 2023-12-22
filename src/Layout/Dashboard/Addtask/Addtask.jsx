@@ -14,16 +14,19 @@ const Addtask = () => {
     const onSubmit = async (data) => {
         console.log(data)
         
-        if (data.success) {
+       
             // now send the menu item data to the server with the image url
             const menuItem = {
-                name: data.name,
-                category: data.category,
-                price: parseFloat(data.price),
-                recipe: data.recipe,
+                worktitle: data.worktitle,
+                workdetails:data.workdetails
+
+               
+               
+               
               
             }
-            const menuRes = await axiosPublic.post('/menu', menuItem);
+            
+            const menuRes = await axiosPublic.post('/addtasks', menuItem);
             console.log(menuRes.data)
             if(menuRes.data.insertedId){
                 // show success popup
@@ -31,13 +34,13 @@ const Addtask = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is added to the menu.`,
+                    title:"Task Added",
                     showConfirmButton: false,
                     timer: 1500
                   });
             }
             
-    }
+    
 }
 
     return (
@@ -78,9 +81,9 @@ const Addtask = () => {
 
                     
 
-                    <button className="btn">
-                        Add Item <FaUtensils></FaUtensils>
-                    </button>
+                    <button className="btn shadow-[0_9px_0_rgb(0,0,0)] hover:shadow-[0_4px_0px_rgb(0,0,0)] text-black bg-white ease-out hover:translate-y-1 transition-all rounded">
+  ADD_TASK
+</button>
                 </form>
             </div>
         </div>
