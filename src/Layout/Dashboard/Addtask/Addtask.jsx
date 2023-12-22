@@ -1,14 +1,17 @@
 
 import { useForm } from "react-hook-form"
-import { FaUtensils } from "react-icons/fa";
+
 
 import Swal from "sweetalert2";
 import UseAxiousPublic from "../../../UseAxiousPublic/UseAxiousPublic";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/AuthProvider";
   
 
 
 
 const Addtask = () => {
+    const {user}=useContext(AuthContext)
     const { register, handleSubmit ,reset } = useForm()
     const axiosPublic=UseAxiousPublic()
     const onSubmit = async (data) => {
@@ -18,7 +21,8 @@ const Addtask = () => {
             // now send the menu item data to the server with the image url
             const menuItem = {
                 task: data.task,
-                workdetails:data.workdetails
+                workdetails:data.workdetails,
+                email:user?.email
 
                
                
@@ -26,7 +30,7 @@ const Addtask = () => {
               
             }
             
-            const menuRes = await axiosPublic.post('/addtasks', menuItem);
+            const menuRes = await axiosPublic.post('/addtask', menuItem);
             console.log(menuRes.data)
             if(menuRes.data.insertedId){
                 // show success popup

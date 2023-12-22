@@ -19,7 +19,7 @@ const MyTaskCard = ({ task, refetch, handleTaskDelete }) => {
       .then((data) => {
         console.log(data);
         toast.success("Your task is completed");
-        navigate("/completetasks");
+        navigate("/dashboard/completedTask");
       });
   };
 

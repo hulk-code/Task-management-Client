@@ -25,7 +25,7 @@ const ToDo = () => {
     queryKey: ["tasks"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/addtasks?email${user.email}`
+        `http://localhost:5000/addtask?email=${user.email}`
       );
 
       const data = await res.json();
